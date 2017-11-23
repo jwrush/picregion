@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <!-- This line fixes the incapatibilty between jquery and electron.
+         See https://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/jcrop/jcrop.min.js"></script>
+  </head>
+  <body>
+    <img id="IMAGE"></img>
+    <script>
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
