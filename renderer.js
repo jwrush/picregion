@@ -24,10 +24,10 @@ function handleCoordChange(c)
   if (c.x != c.x2 && c.y != c.y2) //this is how jcrop indicates a "thrown away" selection
   {
     model.selectionMade = true
-    model.x1 = c.x
-    model.x2 = c.x2
-    model.y1 = c.y
-    model.y2 = c.y2
+    model.x1 = Math.round(c.x)
+    model.x2 = Math.round(c.x2)
+    model.y1 = Math.round(c.y)
+    model.y2 = Math.round(c.y2)
   }
   else
   {
@@ -65,11 +65,16 @@ function updateView()
 function showImage(path)
 {
   var imageElement = document.getElementById("IMAGE")
-  imageElement.src = path
 
-  $('#IMAGE').Jcrop({trackDocument: true,
-                     onSelect: handleCoordChange,
-                     onChange: handleCoordChange })
+  imageElement.onload = function()
+  {
+    $('#IMAGE').Jcrop({trackDocument: true,
+                       trueSize: [this.naturalWidth, this.naturalHeight],
+                       onSelect: handleCoordChange,
+                       onChange: handleCoordChange })
+  }
+
+  imageElement.src = path
 }
 
 function finalizeSelection()
