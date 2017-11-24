@@ -9,11 +9,50 @@
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/jcrop/jcrop.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+    <link rel="stylesheet" href="css/picregion.css" type="text/css" />
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
   </head>
   <body>
-    <img id="IMAGE"></img>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <img id="IMAGE"></img>
+        </div>
+
+        <div class="col-3">
+            <h3 id="PROMPT" class="text-center"></h3>
+            <table class="table table-condensed">
+              <tr>
+                <th></th>
+                <th>X</th>
+                <th>Y</th>
+              </tr>
+              <tr>
+                <td>Start</td>
+                <td id="RECT_MIN_X"></td>
+                <td id="RECT_MIN_Y"></td>
+              </tr>
+              <tr>
+                <td>Stop</td>
+                <td id="RECT_MAX_X"></td>
+                <td id="RECT_MAX_Y"></td>
+              </tr>
+            </table>
+            <button class="btn-block btn btn-primary"
+                    id=DONE_BUTTON >
+                    Done
+            </button>
+        </div>
+      </div>
+    </div>
+
     <script>
       require('./renderer.js')
     </script>
+
   </body>
 </html>
