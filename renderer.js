@@ -4,10 +4,11 @@
 
 const util = require('util')
 var argv = require('electron').remote.process.argv.slice(2)
-var imagePath = argv[0]
 var userPrompt = argv[1] ? argv[1] : "Select a region."
 var stdout = require('electron').remote.process.stdout
+var cwd = require('electron').remote.process.cwd
 var myWindow = require('electron').remote.getCurrentWindow()
+var imagePath = `${cwd()}/${argv[0]}`
 
 let model = {
                prompt: userPrompt,
