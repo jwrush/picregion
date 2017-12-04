@@ -79,7 +79,7 @@ function showImage(path)
 
 function finalizeSelection()
 {
-  var output = util.format("%i %i %i %i\n", model.x1, model.y1, model.x2, model.x2)
+  var output = util.format("%i %i %i %i\n", model.x1, model.y1, model.x2, model.y2)
   stdout.write(output, encoding='utf8')
   myWindow.close()
 }
